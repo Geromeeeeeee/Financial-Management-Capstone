@@ -1,5 +1,5 @@
 import { Text } from "react-native";
-import Generic_View from "../comps/view";
+import Generic_View from "../../comps/view";
 
 export default function Reservations() {
   return (

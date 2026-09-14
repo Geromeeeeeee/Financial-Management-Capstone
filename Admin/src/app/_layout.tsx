@@ -1,4 +1,5 @@
 import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 
 import {
@@ -9,11 +10,10 @@ import {
 } from "@expo-google-fonts/google-sans-flex";
 
 import { AnimatedSplashOverlay } from "@/components/animated-icon";
-import AppTabs from "@/components/app-tabs";
 
 SplashScreen.preventAutoHideAsync();
 
-export default function TabLayout() {
+export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     GoogleSansFlex_400Regular,
     GoogleSansFlex_500Medium,
@@ -24,10 +24,17 @@ export default function TabLayout() {
   if (!fontsLoaded) {
     return null;
   }
+
   return (
     <>
       <AnimatedSplashOverlay />
-      <AppTabs />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(settings_tabs)/edit_menu"
+          options={{ headerShown: false }}
+        />
+      </Stack>
     </>
   );
 }

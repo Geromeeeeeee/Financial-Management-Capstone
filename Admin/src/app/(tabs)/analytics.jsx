@@ -1,9 +1,9 @@
 import { Text } from "react-native";
-import Card_View from "../comps/card_view";
-import Summary_Card from "../comps/summary_cards";
-import Generic_View from "../comps/view";
+import Card_View from "../../comps/card_view";
+import Summary_Card from "../../comps/summary_cards";
+import Generic_View from "../../comps/view";
 
-export default function Home() {
+export default function Analytics() {
   return (
     <>
       <Generic_View>
@@ -14,13 +14,13 @@ export default function Home() {
             color: "#243119d5",
           }}
         >
-          Home
+          Analytics
         </Text>
         <Card_View>
+          <Summary_Card number={"37,500"} text={"Total Sales"} />
           <Summary_Card number={"4"} text={"Total Tables"} />
-          <Summary_Card number={"2"} text={"Available Tables"} />
-          <Summary_Card number={"10,800"} text={"Today's Sales"} />
-          <Summary_Card number={"14"} text={"Pool Table Sessions"} />
+          <Summary_Card number={"2,500"} text={"Average Sales"} />
+          <Summary_Card number={"230"} text={"Total Pool Table Sessions"} />
         </Card_View>
         <Text
           style={{
@@ -29,7 +29,7 @@ export default function Home() {
             color: "#243119d5",
           }}
         >
-          Live Tables
+          Sales Overview
         </Text>
       </Generic_View>
     </>
