@@ -9,7 +9,7 @@ export default function Reservations() {
       <Text
         style={{
           fontFamily: "GoogleSansFlex_500Medium",
-          fontSize: 24,
+          fontSize: 20,
           color: "#243119d5",
         }}
       >

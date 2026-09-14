@@ -39,10 +39,7 @@ export default function Settings() {
               marginLeft: 10,
               marginBottom: 10,
             }}
-            onPress={() => {
-              console.log("clicked");
-              router.push(option.route);
-            }}
+            onPress={() => router.push(option.route)}
           >
             <Image source={option.icon} />
             <Text>{option.name}</Text>
