@@ -30,10 +30,6 @@ export default function RootLayout() {
       <AnimatedSplashOverlay />
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="(settings_tabs)/edit_menu"
-          options={{ headerShown: false }}
-        />
       </Stack>
     </>
   );

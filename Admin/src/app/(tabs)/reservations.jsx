@@ -1,18 +1,11 @@
 import { Text } from "react-native";
+import Header_text from "../../comps/header_text";
 import Generic_View from "../../comps/view";
 
 export default function Reservations() {
   return (
     <Generic_View>
-      <Text
-        style={{
-          fontFamily: "GoogleSansFlex_700Bold",
-          fontSize: 28,
-          color: "#243119d5",
-        }}
-      >
-        Reservations
-      </Text>
+      <Header_text text={"Reservation"} />
       <Text
         style={{
           fontFamily: "GoogleSansFlex_500Medium",

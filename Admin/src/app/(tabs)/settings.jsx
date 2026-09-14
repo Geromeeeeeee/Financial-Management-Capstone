@@ -1,5 +1,6 @@
 import { router } from "expo-router";
 import { Image, Pressable, Text } from "react-native";
+import Header_text from "../../comps/header_text";
 import Generic_View from "../../comps/view";
 
 export default function Settings() {
@@ -28,16 +29,7 @@ export default function Settings() {
   return (
     <>
       <Generic_View>
-        <Text
-          style={{
-            fontFamily: "GoogleSansFlex_700Bold",
-            fontSize: 28,
-            color: "#243119d5",
-            marginBottom: 15,
-          }}
-        >
-          Settings
-        </Text>
+        <Header_text text={"Settings"} />
         {options.map((option) => (
           <Pressable
             key={option.name}
