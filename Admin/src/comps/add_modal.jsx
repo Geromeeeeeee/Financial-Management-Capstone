@@ -5,7 +5,12 @@ import Add_Modal_Styles from "../app/styles/add_modal_styles";
 
 const { style } = Add_Modal_Styles();
 
-export default function Add_Modal({ visible, setIsModalOpen, setStatus }) {
+export default function Add_Modal({
+  visible,
+  setIsModalOpen,
+  setStatus,
+  refreshMenu,
+}) {
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -26,6 +31,8 @@ export default function Add_Modal({ visible, setIsModalOpen, setStatus }) {
       setCategory("");
       setPrice("");
       setIsCategoryOpen(false);
+
+      await refreshMenu();
     }
   };
 

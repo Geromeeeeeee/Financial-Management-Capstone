@@ -2,17 +2,24 @@ import { useEffect, useState } from "react";
 import { Image, Pressable, Text, TextInput, View } from "react-native";
 import Add_Modal from "../../comps/add_modal";
 import Header_text from "../../comps/header_text";
+import Menu_Display from "../../comps/menu_display";
 import Generic_View from "../../comps/view";
+import Get_Menu from "../custom_hook/get_menu";
 import useFilter from "../custom_hook/handle_filter";
 import useSearch from "../custom_hook/handle_search";
 import Edit_Menu_styles from "../styles/edit_menu_styles";
 
 export default function Edit_Menu() {
+  const [menuItems, setMenuItems] = useState([]);
   const { search, setSearch } = useSearch();
   const [filter, setFilter] = useState("All");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [status, setStat] = useState(null);
+  const { getMenuItems } = Get_Menu({ setMenuItems });
+  useEffect(() => {
+    getMenuItems();
+  }, []);
   useEffect(() => {
     if (!status) return;
 
@@ -82,7 +89,9 @@ export default function Edit_Menu() {
         visible={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         setStatus={setStat}
+        refreshMenu={getMenuItems}
       />
+      <Menu_Display menuItems={menuItems} />
     </Generic_View>
   );
 }
