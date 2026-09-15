@@ -5,12 +5,29 @@ import Add_Modal_Styles from "../app/styles/add_modal_styles";
 
 const { style } = Add_Modal_Styles();
 
-export default function Add_Modal({ visible, setIsModalOpen }) {
+export default function Add_Modal({ visible, setIsModalOpen, setStatus }) {
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  const { addItem } = Add_Item();
+  const { addItem } = Add_Item({ setStatus });
+
+  const handleSubmit = async () => {
+    const result = await addItem({
+      name,
+      category,
+      price,
+    });
+
+    if (result && result.stat === "success") {
+      setIsModalOpen(false);
+
+      setName("");
+      setCategory("");
+      setPrice("");
+      setIsCategoryOpen(false);
+    }
+  };
 
   return (
     <Modal transparent={true} animationType="fade" visible={visible}>
@@ -62,15 +79,7 @@ export default function Add_Modal({ visible, setIsModalOpen }) {
               </Text>
             </Pressable>
 
-            <Pressable
-              onPress={() =>
-                addItem({
-                  name,
-                  category,
-                  price,
-                })
-              }
-            >
+            <Pressable onPress={handleSubmit}>
               <Text style={{ fontFamily: "GoogleSansFlex_500Medium" }}>
                 Add Item
               </Text>

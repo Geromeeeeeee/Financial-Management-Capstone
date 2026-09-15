@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Image, Pressable, Text, TextInput, View } from "react-native";
 import Add_Modal from "../../comps/add_modal";
 import Header_text from "../../comps/header_text";
@@ -12,6 +12,17 @@ export default function Edit_Menu() {
   const [filter, setFilter] = useState("All");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [status, setStat] = useState(null);
+  useEffect(() => {
+    if (!status) return;
+
+    const timer = setTimeout(() => {
+      setStat(null);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [status]);
+
   const { selectFilter } = useFilter({ setFilter, setIsFilterOpen });
   const { style } = Edit_Menu_styles({ setIsModalOpen });
 
@@ -57,7 +68,21 @@ export default function Edit_Menu() {
           <Text style={style.addButtonText}>+ Add Item</Text>
         </Pressable>
       </View>
-      <Add_Modal visible={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      {status && (
+        <Text
+          style={{
+            color: status.stat === "success" ? "green" : "red",
+            fontFamily: "GoogleSansFlex_500Medium",
+          }}
+        >
+          {status.msg}
+        </Text>
+      )}
+      <Add_Modal
+        visible={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        setStatus={setStat}
+      />
     </Generic_View>
   );
 }

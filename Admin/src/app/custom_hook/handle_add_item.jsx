@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function Add_Item() {
+export default function Add_Item({ setStatus }) {
   const addItem = async ({ name, category, price }) => {
     try {
       const response = await axios.post(
@@ -11,11 +11,17 @@ export default function Add_Item() {
           item_price: price,
         },
       );
-      console.log(response.data);
-
+      setStatus(response.data);
       return response.data;
     } catch (error) {
       console.error("Failed to add item:", error);
+
+      setStatus({
+        stat: "fail",
+        msg: "Failed to add item",
+      });
+
+      return null;
     }
   };
 

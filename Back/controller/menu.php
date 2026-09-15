@@ -15,10 +15,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     if($result){
         echo json_encode([
+            'stat' => 'success',
             'msg' => 'Item Added'
         ]);
     } else {
         echo json_encode([
+            'stat' => 'fail',
             'msg' => 'Item Exists'
         ]);
     }
