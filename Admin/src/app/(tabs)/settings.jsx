@@ -13,7 +13,7 @@ export default function Settings() {
     {
       icon: require("@/assets/images/tabIcons/edit.png"),
       name: "Manage Pool Tables",
-      route: "/edit_menu",
+      route: "/manage_pool_tables",
     },
     {
       icon: require("@/assets/images/tabIcons/person.png"),

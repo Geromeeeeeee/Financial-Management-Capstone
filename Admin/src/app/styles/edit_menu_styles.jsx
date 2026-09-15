@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export default function Edit_Menu_styles() {
+  console.log("🔥 EDIT MENU STYLES LOADED");
   const style = StyleSheet.create({
     Header_2: {
       fontFamily: "GoogleSansFlex_500Medium",
@@ -25,6 +26,7 @@ export default function Edit_Menu_styles() {
       flexDirection: "row",
       alignItems: "flex-start",
       justifyContent: "space-between",
+      gap: 10,
     },
     filterContainer: {
       position: "relative",
@@ -34,7 +36,6 @@ export default function Edit_Menu_styles() {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
-      minWidth: 140,
       padding: 15,
       borderRadius: 10,
       boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.15)",
@@ -55,11 +56,21 @@ export default function Edit_Menu_styles() {
     addButton: {
       padding: 15,
       borderRadius: 10,
+      height: 50,
       boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.15)",
     },
     addButtonText: {
       color: "#243119",
       fontFamily: "GoogleSansFlex_500Medium",
+    },
+    search: {
+      flex: 1,
+      flexDirection: "row",
+      alignItems: "center",
+      boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.15)",
+      borderRadius: 10,
+      paddingLeft: 10,
+      height: 50,
     },
   });
   return { style };
