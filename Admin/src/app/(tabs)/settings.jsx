@@ -35,14 +35,22 @@ export default function Settings() {
             key={option.name}
             style={{
               flexDirection: "row",
-              gap: 15,
+              gap: 20,
               marginLeft: 10,
-              marginBottom: 10,
+              marginVertical: 5,
             }}
             onPress={() => router.push(option.route)}
           >
             <Image source={option.icon} />
-            <Text>{option.name}</Text>
+            <Text
+              style={{
+                fontFamily: "GoogleSansFlex_400Regular",
+                fontSize: 16,
+                color: "#243119d5",
+              }}
+            >
+              {option.name}
+            </Text>
           </Pressable>
         ))}
       </Generic_View>

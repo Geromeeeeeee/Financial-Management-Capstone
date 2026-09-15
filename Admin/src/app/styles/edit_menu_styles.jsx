@@ -9,12 +9,13 @@ export default function Edit_Menu_styles() {
       color: "#243119d5",
     },
     Container: {
+      flex: 1,
       flexDirection: "row",
       alignItems: "center",
-      height: "10%",
+      height: 50,
       boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.15)",
       borderRadius: 10,
-      padding: 10,
+      paddingHorizontal: 10,
     },
     searchInput: {
       flex: 1,

@@ -1,4 +1,3 @@
-import { Text } from "react-native";
 import Card_View from "../../comps/card_view";
 import Header_text from "../../comps/header_text";
 import Summary_Card from "../../comps/summary_cards";
@@ -15,15 +14,7 @@ export default function Home() {
           <Summary_Card number={"10,800"} text={"Today's Sales"} />
           <Summary_Card number={"14"} text={"Pool Table Sessions"} />
         </Card_View>
-        <Text
-          style={{
-            fontFamily: "GoogleSansFlex_700Bold",
-            fontSize: 28,
-            color: "#243119d5",
-          }}
-        >
-          Live Tables
-        </Text>
+        <Header_text text={"Live Tables"} />
       </Generic_View>
     </>
   );
