@@ -1,6 +1,6 @@
 <?php
-require_once './db_connect.php';
-require_once './service/menu.php';
+require_once '../db_connect.php';
+require_once '../service/menu.php';
 
 $menu = new Menu($pdo);
 

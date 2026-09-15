@@ -6,11 +6,11 @@ import Add_Modal_Styles from "../app/styles/add_modal_styles";
 const { style } = Add_Modal_Styles();
 
 export default function Add_Modal({ visible, setIsModalOpen }) {
-  const { addItem } = Add_Item();
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const { addItem } = Add_Item();
 
   return (
     <Modal transparent={true} animationType="fade" visible={visible}>
